@@ -54,4 +54,4 @@ def train_network(training_data, labels, output, keep_prob=tf.placeholder(tf.flo
         keep_prob: 1.0
     }
     test_accuracy = accuracy.eval(feed_dict=test_data)
-    print("TEST ACCURACY: %g %%" % test_accuracy * 100)
+    print("TEST ACCURACY: %g %%" % (test_accuracy * 100))
