@@ -33,3 +33,20 @@ STEP 900 - Training batch accuracy: 95 %
 FINISHED TRAINING
 TEST ACCURACY: 94.17 %
 ```
+
+## Convolutional Layer
+Raw Outpu:
+```
+STEP 0 - Training batch accuracy: 11 %
+STEP 100 - Training batch accuracy: 82 %
+STEP 200 - Training batch accuracy: 93 %
+STEP 300 - Training batch accuracy: 97 %
+STEP 400 - Training batch accuracy: 93 %
+STEP 500 - Training batch accuracy: 95 %
+STEP 600 - Training batch accuracy: 97 %
+STEP 700 - Training batch accuracy: 92 %
+STEP 800 - Training batch accuracy: 99 %
+STEP 900 - Training batch accuracy: 97 %
+FINISHED TRAINING
+TEST ACCURACY: 97.09 %
+```
