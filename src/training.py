@@ -12,7 +12,7 @@ def train_network(training_data, labels, output, keep_prob=tf.placeholder(tf.flo
     mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
     # Define the objective/loss function
-    loss = tf.reduce(tf.nn.softmax_cross_entropy_with_logits(
+    loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
         labels=labels, logits=output))
 
     # Training step
@@ -31,22 +31,19 @@ def train_network(training_data, labels, output, keep_prob=tf.placeholder(tf.flo
         # Poll next batch
         input_batch, labels_batch = mnist.train.next_batch(batch_size)
 
-        # Construct inputs
-        training_data = {
-            training_data: input_batch,
-            labels: labels_batch,
-            keep_prob: 1.0
-        }
-
         # Print accuracy progress
         if i % 100 == 0:
-            train_accuracy = accuracy.eval(feed_dict=training_data)
+            train_accuracy = accuracy.eval(feed_dict={
+                training_data: input_batch,
+                labels: labels_batch,
+                keep_prob: 1.0
+            })
             print("STEP %d - Training batch accuracy: %g %%" %
                   (i, train_accuracy * 100))
 
         # Run the training step
-        training_data['keep_prob'] = 0.5
-        train_step.run(feed_dict=training_data)
+        train_step.run(
+            feed_dict={training_data: input_batch, labels: labels_batch, keep_prob: 0.5})
 
     print("FINISHED TRAINING")
 
